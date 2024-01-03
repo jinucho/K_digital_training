@@ -1,2 +1,2 @@
-# Mean_30
+# Mean_30 Machine Leaning Project (Predict Diabates)
 Machine Learning Project
