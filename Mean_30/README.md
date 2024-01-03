@@ -1,6 +1,7 @@
 # 🤖 머신러닝 프로젝트(당뇨병 예측모델)
-# Team : Mean_30
-### Diabetes Predictive modeling
+Diabetes Predictive modeling
+- Team : Mean_30
+
 
 ## 팀구성 :sunny:
   * 🏆팀명: Mean_30 (평균 30세)
