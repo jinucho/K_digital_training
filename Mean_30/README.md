@@ -10,15 +10,15 @@ Diabetes Predictive modeling
 
 ## index
   Ⅰ. 🏁프로젝트 목적  
-    - 당뇨병을 예측모델을 개발 : 미국(NHIS) 자료 바탕  
+      - 당뇨병을 예측모델을 개발 : 미국(NHIS) 자료 바탕  
   Ⅱ. 📑원본 데이터의 구성확인 (1차 분류)   
-    - Datafile : CSV 5종 (csv, summary, layout, imputed incomes and paradata etc.  
+      - Datafile : CSV 5종 (csv, summary, layout, imputed incomes and paradata etc.  
   Ⅲ. 📑원본 데이터 분석 (2차 분류)  
-    1. 원본데이터 분류   
-    2. Column(이하:Feature) 필터링 (Feature Selection : Feature extraction)   
+      1. 원본데이터 분류   
+      2. Column(이하:Feature) 필터링 (Feature Selection : Feature extraction)   
   Ⅳ. 📋데이터 전처리   
-    1. Datafile 통합(merge)  
-    2. 결측값(nan) 처리   
+      1. Datafile 통합(merge)  
+      2. 결측값(nan) 처리   
   Ⅴ. ✔학습 모델과 모델 성능평가  
   Ⅵ. 🚨프로젝트의 아쉬운 점 과 사용기술  
   Ⅶ. 📶자료출처  
