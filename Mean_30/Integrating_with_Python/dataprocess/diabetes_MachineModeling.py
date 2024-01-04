@@ -14,10 +14,13 @@ def diabetes_MachineModeling(path: str=None, Data_preprocessing: str=None,):
         df = pd.read_csv('Data_preprocessing.csv')
     else:
         df = pd.read_csv(f'{path}\\{Data_preprocessing}.csv')
+    
+
 
     # 2. 학습 / 테스트 데이터 분리
     X_tr, X_test, y_tr, y_test = train_test_split(df.drop(['id','DIBEV1'],axis=1),df['DIBEV1'],shuffle=True,test_size=0.05,stratify=df['DIBEV1'],random_state=123)
-    X_test_org = X_test.copy()
+
+
 
     # 3. 불균형 데이터 처리(언더샘플링)
     sampler = RandomUnderSampler(random_state=123)
@@ -31,10 +34,10 @@ def diabetes_MachineModeling(path: str=None, Data_preprocessing: str=None,):
         ss = StandardScaler()
         X_under[col] = ss.fit_transform(X_under[[col]])
         X_test[col] = ss.transform(X_test[[col]])
-        
+       
         with open(f"pkl\\Scaler_{col}.pickle", "wb") as fw:
             pickle.dump(ss, fw)
-        
+
         
     # 5. 범주형 변수 onehotencoding
     # 데이터프레임 전체 컬럼에서 수치형 컬럼 제외
@@ -43,6 +46,7 @@ def diabetes_MachineModeling(path: str=None, Data_preprocessing: str=None,):
     # 위 컬럼에서 고유값 개수가 3개 이상인 컬럼만 추출
     # 0,1만 가지는 binary 컬럼은 굳이 ohe를 하지 않을 것
     nom_col = [col for col in cols if X_under[col].nunique() >= 3 ]
+    
 
     # 명목형 컬럼들에 대한 dummy 데이터 생성(원핫인코딩)
     train_dummies = [] # 학습용 데이터셋의 명목형 컬럼들의 더미데이터셋 저장용 리스트
@@ -53,6 +57,7 @@ def diabetes_MachineModeling(path: str=None, Data_preprocessing: str=None,):
 
     train_dummies = pd.concat(train_dummies,axis=1) # 학습 데이터의 더미데이터셋 리스트를 하나로 합침
     test_dummies = pd.concat(test_dummies,axis=1) # 검증 데이터의 더미데이터셋 리스트를 하나로 합침
+
 
     # 만약 고유값 개수 차이로 인해 학습셋과 테스트셋의 더미 데이터셋 컬럼 차이가 있다면 컬럼수를 통일
     # 학습 및 예측 오류 방지
@@ -88,14 +93,17 @@ def diabetes_MachineModeling(path: str=None, Data_preprocessing: str=None,):
     # 7. pycaret 최적화 모델링 : ensemble_model
     skf = StratifiedKFold(n_splits=5, random_state=42, shuffle=True)
     clf = setup(data=X_tr,target=y_tr,preprocess=False,verbose=False,n_jobs=-1,session_id=123) # pycaret AutoML사용을 위한 초기화
-    best_5 = compare_models(fold=10, sort='auc',verbose=False,n_select=5) # pycaret에서 sort에 설정한 평가지표 기준으로 데이터셋에 최적화된 모델 선정(n_select = 1이 기본값이며, 이 값에 따라 선정되는 모델의 개수 변경 됨)
+    best_5 = compare_models(fold=10, sort='auc',verbose=False,n_select=5,exclude=['lightgbm']) # pycaret에서 sort에 설정한 평가지표 기준으로 데이터셋에 최적화된 모델 선정(n_select = 1이 기본값이며, 이 값에 따라 선정되는 모델의 개수 변경 됨)
     tuned_models = []
     for model in best_5:
         tuned_model = tune_model(model,optimize='auc',verbose=False,search_library='optuna',fold=skf)#,search_algorithm='optuna')
         tuned_models.append(tuned_model)
 
     ensemble_model = blend_models(estimator_list=tuned_models, method='auto',optimize='auc',verbose=False) # best_5 모델들에 대한 앙상블
-    save_model(ensemble_model, 'ensemble_model')
+    
+    with open("pkl\\ensemble_model.pickle", "wb") as fwm:
+         pickle.dump(ensemble_model, fwm)
+    # save_model(ensemble_model, 'ensemble_model')
     
     # 8. 최종 X_test 모델성능 확인
     pred = predict_model(ensemble_model,data=X_test,verbose=True)
