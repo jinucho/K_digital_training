@@ -32,6 +32,12 @@ for index in range(len(pkl_list)):
 def validate_zero_one(text):
     return text if text in ['0', '1'] else None
 
+def answerconvert(x):
+    if x == '예' or x =='여성':
+        return 1
+    else : 
+        return 0
+
 
 st.title('당신은 당뇨 위험이 있을까?')
 
@@ -39,17 +45,14 @@ feature1 = st.text_input('이름을 입력하세요:', ) #-> ID로 사용
 feature2 = st.text_input('나이를 입력하세요:', )
 # feature3 = st.number_input('음주를 자주 하나요?(아니오:0,예:1):', min_value=0, max_value=1,step=1)
 
-feature3 = st.text_input('음주를 자주 하나요?:')
-if feature3 not in ['0', '1']:
-    st.info('아니오:0,예:1')
-else:
-    feature3 = int(feature3)
-feature4 = st.text_input('관절염이 있나요?:')
-if feature4 not in ['0', '1']:
-    st.info('아니오:0,예:1')
-else:
-    feature4 = int(feature4)
-    
+# status = st.radio("Select status.", ("Active", "Inactive"))
+# if status == "Active":
+#     st.success("활성화 되었습니다.")
+# else:
+#     st.warning("비활성화 되었습니다.")
+
+
+
 feature5 = st.text_input('BMI수치를 입력하세요(모르시면0):', )
 feature18 = st.text_input('키를 입력하세요:', )
 feature19 = st.text_input('몸무게를 입력하세요:', )
@@ -59,58 +62,42 @@ if feature5 == '0':
         feature5 = str(float(feature19)/((float(feature18)/100)**2))
     except:
         pass
+feature3 = st.radio('음주를 자주 하나요?:',('예','아니오'))
+feature3 = answerconvert(feature3)
 
-feature6 = st.text_input('콜레스테롤이 높나요?:')
-if feature6 not in ['0', '1']:
-    st.info('아니오:0,예:1')
-else:
-    feature6 = int(feature6)
+
+feature4 = st.radio('관절염이 있나요:',('예','아니오'))
+feature4 = answerconvert(feature4)
     
-feature7 = st.text_input('폐기종이 있나요?:')
-if feature7 not in ['0', '1']:
-    st.info('아니오:0,예:1')
-else:
-    feature7 = int(feature7)
-feature8 = st.text_input('균형잡힌 식사를 하나요?:')
-if feature8 not in ['0', '1']:
-    st.info('아니오:0,예:1')
-else:
-    feature8 = int(feature8)
-feature9 = st.text_input('성별을 입력하세요:')
-if feature9 not in ['0', '1']:
-    st.info('남성:0,여성:1')
-else:
-    feature9 = int(feature9)
+
+feature6 = st.radio('콜레스테롤이 높나요?:',('예','아니오'))
+feature6 = answerconvert(feature6)
+
+feature7 = st.radio('폐기종이 있나요?:',('예','아니오'))
+feature7 = answerconvert(feature7)
+
+
+feature8 = st.radio('균형잡힌 식사를 하나요?:',('예','아니오'))
+feature8 = answerconvert(feature8)
+
+feature9 = st.radio('성별을 선택하세요:',('남성','여성'))
+feature9 = answerconvert(feature9)
+
+feature11 = st.radio('고혈압이 있나요?:',('예','아니오'))
+feature11 = answerconvert(feature11)
+
+feature12 = st.radio('이전에 혈압약을 먹었나요?:',('예','아니오'))
+feature12 = answerconvert(feature12)
+
+feature13 = st.radio('현재 혈압약 먹나요?:',('예','아니오'))
+feature13 = answerconvert(feature13)
+
+feature14 = st.radio('최근 복통/구토/설사등 위장 장애가 있었나요?:',('예','아니오'))
+feature14 = answerconvert(feature14)
     
-feature11 = st.text_input('고혈압이 있나요?')
-if feature11 not in ['0', '1']:
-    st.info('아니오:0,예:1')
-else:
-    feature11 = int(feature11)
-    
-feature12 = st.text_input('이전에 혈압약을 먹었나요?')
-if feature12 not in ['0', '1']:
-    st.info('아니오:0,예:1')
-else:
-    feature12 = int(feature12)
-    
-feature13 = st.text_input('현재 혈압약 먹나요?')
-if feature13 not in ['0', '1']:
-    st.info('아니오:0,예:1')
-else:
-    feature13 = int(feature13)
-    
-feature14 = st.text_input('최근 복통/구토/설사등 위장 장애가 있었나요?')
-if feature14 not in ['0', '1']:
-    st.info('아니오:0,예:1')
-else:
-    feature14 = int(feature14)
-    
-feature10 = st.text_input('히스패닉인가요?')
-if feature10 not in ['0', '1']:
-    st.info('아니오:0,예:1')
-else:
-    feature10 = int(feature10)
+feature10 = st.radio('히스패닉인가요?:',('예','아니오'))
+feature10 = answerconvert(feature10)
+
     
 race = {"백인": 1,"흑인": 2,"인도인": 3,"중국인":6,"필리핀":7,"아시아인":12,"혼혈":17,"이외":16}
 selected_race = st.selectbox('인종을 선택해주세요:', list(race.keys()))
