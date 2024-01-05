@@ -56,8 +56,8 @@
   1. Datafile 통합(merge)   
     1) 3개 데이터셋 : Family , Sample Child, Sample Adult  
     2) 발생문제  
-       - 현      상 : 통합시, 동일 Feature가 있음에도 Feature이 새로 생성됨  
-       - 해결방법 : combine_first 함수 사용   
+       - 현   상 : 두번째 파일 통합시, 동일 Feature가 있음에도 Feature이 새로 생성됨  
+       - 해결방법 : combine_first 함수 사용  
   2. 전처리/결측치(nan) 처리  
   3. Feature 선정(1): 논문 참조  
   4. Feature 선정(2): 인과관계 확인 필요항목들 추가  
@@ -94,7 +94,7 @@
     2) 팀원들과 논의하고 기술을 공유하고 향상시킬 수 있는 기간이었음  
 
   4. 사용기술  
-    - python, pandas, numpy, matplotlib, sklearn and pycaret etc.  
+    - python, pandas, numpy, matplotlib, sklearn, Streamlit and pycaret etc.  
 
 ## Ⅶ. 자료출처 </br>Reference
   1. 기초데이터 :  https://www.cdc.gov/nchs/nhis/nhis_2018_data_release.htm
