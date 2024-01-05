@@ -18,9 +18,10 @@ logo_url = "https://www.biotimes.co.kr/news/photo/202204/7608_8719_340.jpg"
 st.sidebar.image(logo_url)
 
 
-url_link = 'https://github.com/jinucho/Mean_30/blob/2cf62f6d6e9c4c2f16d5389079974a6a29e4848f/Streamlit_Service/%EC%84%A4%EB%AC%B8%EC%A7%80_CV.csv'
-# ref_df = pd.read_csv('설문지_CV.csv',index_col = 'Unnamed: 0')
-ref_df = pd.read_csv(url_link,index_col = 'Unnamed: 0')
+# url_link = 'https://github.com/jinucho/Mean_30/blob/2cf62f6d6e9c4c2f16d5389079974a6a29e4848f/Streamlit_Service/%EC%84%A4%EB%AC%B8%EC%A7%80_CV.csv'
+# ref_df = pd.read_csv(url_link,index_col = 'Unnamed: 0')
+ref_df = pd.read_csv('설문지_CV.csv',index_col = 'Unnamed: 0')
+
 pkl_list = ['ensemble_model.pickle', 'Scaler_AGE.pickle', 'Scaler_BMI.pickle', 'Scaler_HEIGHT(cm).pickle', 'Scaler_WEIGHT(kg).pickle' ]
 val_list = ['model', 'AGE', 'BMI', 'HEIGHT(cm)', 'WEIGHT(kg)']
 scalers = ['AGE', 'BMI', 'HEIGHT(cm)', 'WEIGHT(kg)']
