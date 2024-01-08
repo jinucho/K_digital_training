@@ -17,7 +17,7 @@ st.sidebar.info(about_info)
 logo_url = "https://www.biotimes.co.kr/news/photo/202204/7608_8719_340.jpg"
 st.sidebar.image(logo_url)
 
-url = 'https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/설문지_CV.csv'
+url = 'https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/ref_DataFrame.csv'
 
 # ref_df = pd.read_csv('설문지_CV.csv',index_col = 'Unnamed: 0')
 ref_df = pd.read_csv(url,index_col = 'Unnamed: 0')
