@@ -7,6 +7,7 @@ from pycaret.classification import *
 import pickle
 import streamlit as st
 import requests
+import os
 
 
 about_info = """
@@ -26,32 +27,15 @@ pkl_list = ['ensemble_model.pickle', 'Scaler_AGE.pickle', 'Scaler_BMI.pickle', '
 val_list = ['model', 'AGE', 'BMI', 'HEIGHT(cm)', 'WEIGHT(kg)']
 scalers = ['AGE', 'BMI', 'HEIGHT(cm)', 'WEIGHT(kg)']
 
+path = os.getcwd()
+
 # Load 피클 데이터 
-# list_dic = {}
-# for index in range(len(pkl_list)):
-#     with open(f"pkl/{pkl_list[index]}", "rb") as fr:
-#         list_dic[val_list[index]] = pickle.load(fr)   
+list_dic = {}
+for index in range(len(pkl_list)):
+    with open(f"{path}/{pkl_list[index]}", "rb") as fr:
+        list_dic[val_list[index]] = pickle.load(fr)   
 # GitHub의 raw 파일 URL
-urls = 'https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/ensemble_model.pickle'
-response = requests.get(url)
-data = response.content
-list_dic[val_list[0]] = pickle.loads(data)
-urls = 'https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_AGE.pickle'
-response = requests.get(url)
-data = response.content
-list_dic[val_list[1]] = pickle.loads(data)
-urls = 'https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_BMI.pickle'
-response = requests.get(url)
-data = response.content
-list_dic[val_list[2]] = pickle.loads(data)
-urls = 'https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_HEIGHT(cm).pickle'
-response = requests.get(url)
-data = response.content
-list_dic[val_list[3]] = pickle.loads(data)
-urls = 'https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_WEIGHT(kg).pickle'
-response = requests.get(url)
-data = response.content
-list_dic[val_list[4]] = pickle.loads(data)
+
 
 
 def validate_zero_one(text):
