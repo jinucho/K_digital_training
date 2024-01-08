@@ -31,8 +31,15 @@ list_dic = {}
 #     with open(f"pkl/{pkl_list[index]}", "rb") as fr:
 #         list_dic[val_list[index]] = pickle.load(fr)   
 # GitHub Raw URL
-urls = ['https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/ensemble_model.pickle','https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_AGE.pickle','https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_BMI.pickle',
-       'https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_HEIGHT(cm).pickle','https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_WEIGHT(kg).pickle']
+val_list = ['model', 'AGE', 'BMI', 'HEIGHT(cm)', 'WEIGHT(kg)']
+https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/pkl/ensemble_model.pickle
+urls = [
+    'https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/pkl/ensemble_model.pickle',
+    'https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/pkl/Scaler_AGE.pickle',
+    'https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/pkl/Scaler_BMI.pickle',
+    'https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/pkl/Scaler_HEIGHT(cm).pickle',
+    'https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/pkl/Scaler_WEIGHT(kg).pickle'
+]
 for val,url in zip(val_list,urls):
     response = requests.get(url)
     data = response.content
