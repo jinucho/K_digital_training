@@ -7,8 +7,6 @@ from pycaret.classification import *
 import pickle
 import streamlit as st
 import requests
-import os
-
 
 about_info = """
 NHIS2018 데이터 기반 당뇨 예측 모델
@@ -29,11 +27,16 @@ scalers = ['AGE', 'BMI', 'HEIGHT(cm)', 'WEIGHT(kg)']
 
 # Load 피클 데이터 
 list_dic = {}
-for index in range(len(pkl_list)):
-    with open(f"pkl/{pkl_list[index]}", "rb") as fr:
-        list_dic[val_list[index]] = pickle.load(fr)   
-# GitHub의 raw 파일 URL
-
+# for index in range(len(pkl_list)):
+#     with open(f"pkl/{pkl_list[index]}", "rb") as fr:
+#         list_dic[val_list[index]] = pickle.load(fr)   
+# GitHub Raw URL
+urls = ['https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/ensemble_model.pickle','https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_AGE.pickle','https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_BMI.pickle',
+       'https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_HEIGHT(cm).pickle','https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_WEIGHT(kg).pickle']
+for val,pkl in zip(val_list,urls):
+    response = requests.get(url)
+    data = response.content
+    list_dic[val] = pickle.loads(data)
 
 
 def validate_zero_one(text):
