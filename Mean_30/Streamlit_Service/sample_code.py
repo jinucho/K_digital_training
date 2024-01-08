@@ -33,7 +33,7 @@ list_dic = {}
 # GitHub Raw URL
 urls = ['https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/ensemble_model.pickle','https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_AGE.pickle','https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_BMI.pickle',
        'https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_HEIGHT(cm).pickle','https://github.com/jinucho/Mean_30/blob/main/Streamlit_Service/pkl/Scaler_WEIGHT(kg).pickle']
-for val,pkl in zip(val_list,urls):
+for val,url in zip(val_list,urls):
     response = requests.get(url)
     data = response.content
     list_dic[val] = pickle.loads(data)
