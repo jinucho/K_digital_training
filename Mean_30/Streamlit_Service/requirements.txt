@@ -1,6 +1,6 @@
 pip==23.3.2
 pandas
 numpy
-sklearn
+scikit-learn
 pycaret
 pickle
