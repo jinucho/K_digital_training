@@ -32,7 +32,6 @@ list_dic = {}
 #         list_dic[val_list[index]] = pickle.load(fr)   
 # GitHub Raw URL
 val_list = ['model', 'AGE', 'BMI', 'HEIGHT(cm)', 'WEIGHT(kg)']
-https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/pkl/ensemble_model.pickle
 urls = [
     'https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/pkl/ensemble_model.pickle',
     'https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/pkl/Scaler_AGE.pickle',
