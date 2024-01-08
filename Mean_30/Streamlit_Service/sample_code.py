@@ -6,6 +6,7 @@ warnings.filterwarnings(action='ignore')
 from pycaret.classification import *
 import pickle
 import streamlit as st
+import requests
 
 
 about_info = """
