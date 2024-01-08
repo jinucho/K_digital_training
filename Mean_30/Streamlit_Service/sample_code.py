@@ -196,8 +196,9 @@ if st.button('당신은 당뇨일까?!'):
 # 또한, 당뇨일 확률은 {percent}% 입니다.''')
         st.sidebar.title("결과 : ")
         st.sidebar.info(f'''{feature1}님은 현재 {result} 입니다.
-        
-        
+또한, 당뇨일 확률은 {percent}% 입니다.''')
+        st.write("결과 : ")
+        st.write(f'''{feature1}님은 현재 {result} 입니다.
 또한, 당뇨일 확률은 {percent}% 입니다.''')
     except:
          st.write('누락된 값이 있습니다, 입력 값을 확인하세요.')
