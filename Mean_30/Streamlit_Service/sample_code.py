@@ -17,9 +17,8 @@ st.sidebar.info(about_info)
 logo_url = "https://www.biotimes.co.kr/news/photo/202204/7608_8719_340.jpg"
 st.sidebar.image(logo_url)
 
-url = 'https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/ref_DataFrame.csv'
-
 # ref_df = pd.read_csv('설문지_CV.csv',index_col = 'Unnamed: 0')
+url = 'https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/ref_DataFrame.csv'
 ref_df = pd.read_csv(url,index_col = 'Unnamed: 0')
 pkl_list = ['ensemble_model.pickle', 'Scaler_AGE.pickle', 'Scaler_BMI.pickle', 'Scaler_HEIGHT(cm).pickle', 'Scaler_WEIGHT(kg).pickle' ]
 val_list = ['model', 'AGE', 'BMI', 'HEIGHT(cm)', 'WEIGHT(kg)']
