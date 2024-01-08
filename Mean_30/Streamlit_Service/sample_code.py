@@ -118,10 +118,10 @@ race = {"백인": 1,"흑인": 2,"인도인": 3,"중국인":6,"필리핀":7,"아�
 selected_race = st.selectbox('인종을 선택해주세요:', list(race.keys()))
 feature15 = race[selected_race]
 feature16 = feature15
-region = {"동북": 1,"중서부": 2,"남부": 3,"서부":4}
-selected_region = st.selectbox('지역을 선택해주세요:', list(region.keys()))
-feature17 = region[selected_region]
-
+# region = {"동북": 1,"중서부": 2,"남부": 3,"서부":4}
+# selected_region = st.selectbox('지역을 선택해주세요:', list(region.keys()))
+# feature17 = region[selected_region]
+feature17 = 1
 
 
 
