@@ -71,7 +71,7 @@ feature2 = st.text_input('나이를 입력하세요:', )
 
 feature18 = st.text_input('키를 입력하세요:', )
 feature19 = st.text_input('몸무게를 입력하세요:', )
-feature5 = str(float(feature19)/((float(feature18)/100)**2))
+feature5 = str(int(float(feature19)/((float(feature18)/100)**2)))
 
 feature3 = st.radio('음주를 자주 하나요?:',('예','아니오'))
 feature3 = answerconvert(feature3)
