@@ -134,14 +134,15 @@ if st.button('설문 결과'):
         input_df = pd.DataFrame(data,index=[0])
         st.session_state['input_data'] = input_df
         st.session_state['survey_result'] = input_df
-        st.write('설문결과')
-        st.dataframe(input_df)
+        # st.write('설문결과')
+        # st.dataframe(input_df)
+        if st.session_state['survey_result'] is not None:
+            st.write('이전 설문 결과:')
+            st.dataframe(st.session_state['survey_result'])
     except:
         st.write('누락된 값이 있습니다.')
         
-if st.session_state['survey_result'] is not None:
-    st.write('이전 설문 결과:')
-    st.dataframe(st.session_state['survey_result'])
+
 
 if st.button('당신은 당뇨일까?!'):
     if st.session_state['input_data'] is not None:
