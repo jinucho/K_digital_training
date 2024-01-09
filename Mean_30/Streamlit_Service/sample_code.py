@@ -142,18 +142,23 @@ if st.button('당신은 당뇨일까?!'):
             input_df[s] = scale.transform(input_df[[s]])
         # 명목형 컬럼들에 대한 dummy 데이터 생성(원핫인코딩)
         test_dummies = [] # 검증용 데이터셋의 명목형 컬럼들의 더미데이터셋 저장용 리스트
-        
         for col in cat_col:
             test_dummies.append(pd.get_dummies(input_df[col],prefix=col,dtype='int')) # 검증데이터의 각 컬럼들의 더미데이터셋을 리스트에 저장
 
         test_dummies = pd.concat(test_dummies,axis=1)    
         input_df = pd.concat([input_df,test_dummies],axis=1).drop(cat_col,axis=1)
-        
+
+
         for col in train_col:
             if col not in input_df.columns:
                 input_df[col] = 0
 
-        input_df = input_df[ref_df.columns]
+        # for col in input_df.columns:
+        #     if col not in train_col:
+        #         input_df.drop(col,axis=1)
+
+        input_df = input_df[train_col]
+        # st.write(f'{input_df.columns}')#,{y_prob}')
         # 모델 생성(from pickle)
         model = list_dic['model']
 
@@ -167,6 +172,8 @@ if st.button('당신은 당뇨일까?!'):
             result = '당뇨'
 
         percent = str(round(y_prob[0],2)*100)
+#         # y_prob = round(y_prob[0][0]*100,2)   
+#         st.write(f'''{feature1}님은 현재 {result} 입니다.
         
         
 # 또한, 당뇨일 확률은 {percent}% 입니다.''')
