@@ -127,11 +127,11 @@ if 'survey_result' not in st.session_state:
 if st.button('설문 결과'):
     try:
         feature5 = str(int(int(feature19)/((int(feature18)/100)**2)))
-        col_text = 'id AGE ALCSTAT ARTH1 BMI CHLEV EPHEV FSBALANC GENDER HISPAN_I HYPEV HYPMDEV2 HYPMED2 INTIL2W MRACBPI2 MRACRPI2 REGION HEIGHT(cm) WEIGHT(kg)'
+        col_text = 'id AGE ALCSTAT ARTH1 BMI CHLEV EPHEV FSBALANC GENDER HISPAN_I HYPEV HYPMDEV2 HYPMED2 INTIL2W MRACBPI2 MRACRPI2 REGION HEIGHT(cm) WEIGHT(kg) DIVEB1'
         columns = col_text.split(' ')
         user_input_feature = [feature1,feature2,feature3,feature4,feature5,feature6,feature7,feature8,feature9,feature10,feature11,feature12,feature13,feature14,feature15,feature16,feature17,feature18,feature19]
         data = dict(zip(columns,user_input_feature))
-        input_df = pd.DataFrame(data)#,index=[0])
+        input_df = pd.DataFrame(data,index=[0])
         st.session_state['input_data'] = input_df
         st.session_state['survey_result'] = input_df
         # st.write('설문결과')
