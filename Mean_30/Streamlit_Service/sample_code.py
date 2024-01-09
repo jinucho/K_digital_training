@@ -188,3 +188,6 @@ if st.button('당신은 당뇨일까?!'):
         st.sidebar.info(f'''{feature1}님은 현재 {result} 입니다.
 또한, 당뇨일 확률은 {percent}% 입니다.''')
         st.info(f"결과 : {feature1}님은 현재 {result} 입니다. 또한, 당뇨일 확률은 {percent} % 입니다.")
+
+    except:
+        pass
