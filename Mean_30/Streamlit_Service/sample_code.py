@@ -26,10 +26,6 @@ scalers = ['AGE', 'BMI', 'HEIGHT(cm)', 'WEIGHT(kg)']
 
 # Load 피클 데이터 
 list_dic = {}
-# for index in range(len(pkl_list)):
-#     with open(f"pkl/{pkl_list[index]}", "rb") as fr:
-#         list_dic[val_list[index]] = pickle.load(fr)   
-# GitHub Raw URL
 val_list = ['model', 'AGE', 'BMI', 'HEIGHT(cm)', 'WEIGHT(kg)']
 urls = [
     'https://raw.githubusercontent.com/jinucho/Mean_30/main/Streamlit_Service/pkl/ensemble_model.pickle',
@@ -58,19 +54,11 @@ st.title('당신은 당뇨 위험이 있을까?')
 
 feature1 = st.text_input('이름을 입력하세요:', ) #-> ID로 사용
 feature2 = st.text_input('나이를 입력하세요:', )
-# feature3 = st.number_input('음주를 자주 하나요?(아니오:0,예:1):', min_value=0, max_value=1,step=1)
-
-# status = st.radio("Select status.", ("Active", "Inactive"))
-# if status == "Active":
-#     st.success("활성화 되었습니다.")
-# else:
-#     st.warning("비활성화 되었습니다.")
 
 
 
-
-feature18 = input('키를 입력하세요:', )
-feature19 = input('몸무게를 입력하세요:', )
+feature18 = st.text_input('키를 입력하세요:', )
+feature19 = st.text_input('몸무게를 입력하세요:', )
 feature5 = str(int(int(feature19)/((int(feature18)/100)**2)))
 
 feature3 = st.radio('음주를 자주 하나요?:',('예','아니오'))
