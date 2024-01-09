@@ -128,7 +128,8 @@ if st.button('설문 결과'):
         user_input_feature = [feature1,feature2,feature3,feature4,feature5,feature6,feature7,feature8,feature9,feature10,feature11,feature12,feature13,feature14,feature15,feature16,feature17,feature18,feature19]
         data = dict(zip(columns,user_input_feature))
         input_df = pd.DataFrame(data,index=[0])
-        st.write(f'{input_df}')
+        st.write('설문결과')
+        st.dataframe(input_df)
     except:
         pass
         
