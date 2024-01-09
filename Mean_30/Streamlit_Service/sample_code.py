@@ -131,7 +131,11 @@ if st.button('설문 결과'):
         st.write(f'{input_df}')
     except:
         pass
+        
+st.write('''
 
+
+''')
 
 
 if st.button('당신은 당뇨일까?!'):
