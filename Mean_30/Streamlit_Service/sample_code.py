@@ -178,7 +178,7 @@ if st.button('당신은 당뇨일까?!'):
         else : 
             result = '당뇨'
 
-        percent = str(round(y_prob[0],2)*100)
+        percent = round(y_prob[0],2)*100
 #         # y_prob = round(y_prob[0][0]*100,2)   
 #         st.write(f'''{feature1}님은 현재 {result} 입니다.
         
@@ -187,4 +187,4 @@ if st.button('당신은 당뇨일까?!'):
         st.sidebar.title("결과 : ")
         st.sidebar.info(f'''{feature1}님은 현재 {result} 입니다.
 또한, 당뇨일 확률은 {percent}% 입니다.''')
-        st.info(f"결과 : {feature1}님은 현재 {result} 입니다. 또한, 당뇨일 확률은 {percent}% 입니다.")
+        st.info(f"결과 : {feature1}님은 현재 {result} 입니다. 또한, 당뇨일 확률은 {percent} % 입니다.")
