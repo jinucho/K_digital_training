@@ -249,7 +249,7 @@ def process_user_input():
         # 사용자 입력 처리 로직
         # ...
         # 예시: 사용자 입력을 DataFrame 형태로 변환하는 로직
-        globals()['input_df'] = pd.DataFrame(data,index=[0])
+        input_df = pd.DataFrame(data,index=[0])
     except Exception as e:
         st.error(f"입력 처리 중 오류가 발생했습니다: {e}")
 
@@ -290,7 +290,7 @@ if st.button('당신은 당뇨일까?!'):
 
 # 저장된 설문 결과를 표시합니다.
 if st.session_state['survey_result'] is not None:
-    st.write('이전 설문 결과:')
+    st.write('설문 결과:')
     st.dataframe(st.session_state['survey_result'])
 
 # 여기에 나머지 코드를 계속해서 추가합니다.
