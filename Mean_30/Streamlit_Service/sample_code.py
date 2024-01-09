@@ -185,7 +185,7 @@ if st.button('설문 결과'):
 또한, 당뇨일 확률은 {percent}% 입니다.''')
             st.info(f"결과 : {feature1}님은 현재 {result} 입니다. 또한, 당뇨일 확률은 {percent}% 입니다.")
     except:
-        pass
+        st.write('누락된 값이 있습니다.')
 
 
 
