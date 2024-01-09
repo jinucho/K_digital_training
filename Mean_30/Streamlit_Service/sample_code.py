@@ -127,13 +127,15 @@ if 'survey_result' not in st.session_state:
 if st.button('설문 결과'):
     try:
         feature5 = str(int(int(feature19)/((int(feature18)/100)**2)))
-        col_text = 'id AGE ALCSTAT ARTH1 BMI CHLEV EPHEV FSBALANC GENDER HISPAN_I HYPEV HYPMDEV2 HYPMED2 INTIL2W MRACBPI2 MRACRPI2 REGION HEIGHT(cm) WEIGHT(kg) DIBEV1'
+        col_text = 'id AGE ALCSTAT ARTH1 BMI CHLEV EPHEV FSBALANC GENDER HISPAN_I HYPEV HYPMDEV2 HYPMED2 INTIL2W MRACBPI2 MRACRPI2 REGION HEIGHT(cm) WEIGHT(kg)'
         columns = col_text.split(' ')
+        kor_col = ['이름','나이','음주유무','관절염유무','BMI','콜레스테롤','폐기종','식단','성별','히스패닉','고혈압','혈압약','구토/설사','인종','인종2','지역','키','몸무게','당뇨']
         user_input_feature = [feature1,feature2,feature3,feature4,feature5,feature6,feature7,feature8,feature9,feature10,feature11,feature12,feature13,feature14,feature15,feature16,feature17,feature18,feature19]
         data = dict(zip(columns,user_input_feature))
-        input_df = pd.DataFrame(data,index=[0])
+        input_df = pd.DataFrame(data)#,index=[0])
+        kor_input_df = input_df.rename(dict(zip(columns,kor_col)),axis=1)
         st.session_state['input_data'] = input_df
-        st.session_state['survey_result'] = input_df
+        st.session_state['survey_result'] = kor_input_df
         # st.write('설문결과')
         # st.dataframe(input_df)
     except:
