@@ -130,6 +130,7 @@ if st.button('설문 결과'):
         input_df = pd.DataFrame(data,index=[0])
         st.write('설문결과')
         st.dataframe(input_df)
+        return input_df
     except:
         pass
         
