@@ -119,7 +119,8 @@ train_col = ['AGE', 'ALCSTAT', 'ARTH1', 'BMI', 'CHLEV', 'EPHEV', 'FSBALANC',
        'MRACRPI2_2.0', 'MRACRPI2_3.0', 'MRACRPI2_9.0', 'MRACRPI2_10.0',
        'MRACRPI2_11.0', 'MRACRPI2_15.0', 'MRACRPI2_16.0', 'MRACRPI2_17.0',
        'REGION_1.0', 'REGION_2.0', 'REGION_3.0', 'REGION_4.0']
-input_df = pd.DataFrame()
+if 'input_data' not in st.session_state:
+    st.session_state['input_data'] = None
 if st.button('설문 결과'):
     try:
         feature5 = str(int(int(feature19)/((int(feature18)/100)**2)))
@@ -130,64 +131,69 @@ if st.button('설문 결과'):
         globals()['input_df'] = pd.DataFrame(data,index=[0])
         st.write('설문결과')
         st.dataframe(input_df)
+        st.session_state['input_data'] = input_df
     except:
         st.write('누락된 값이 있습니다.')
 
 if st.button('당신은 당뇨일까?!'):
-    try:
-        num_col = ['AGE','BMI','HEIGHT(cm)','WEIGHT(kg)']
-        cat_col = ['HISPAN_I', 'MRACBPI2', 'MRACRPI2', 'REGION']
-        nom_col = np.setdiff1d(input_df.drop('id',axis=1).columns,num_col,cat_col)
-        input_df.loc[:,num_col] = input_df.loc[:,num_col].astype('float')
-        input_df.loc[:,nom_col] = input_df.loc[:,nom_col].astype('int')
+    if st.session_state['input_data'] is not None:
+        # session_state에서 데이터 불러오기
+        input_df = st.session_state['input_data']
 
-        cust_id = input_df.pop('id')
-
-        # Scaler 생성(from pickle) 할당 및 컬럼 Scaling
-        for s in scalers:
-            scale = list_dic[s]
-            input_df[s] = scale.transform(input_df[[s]])
-        # 명목형 컬럼들에 대한 dummy 데이터 생성(원핫인코딩)
-        test_dummies = [] # 검증용 데이터셋의 명목형 컬럼들의 더미데이터셋 저장용 리스트
-        for col in cat_col:
-            test_dummies.append(pd.get_dummies(input_df[col],prefix=col,dtype='int')) # 검증데이터의 각 컬럼들의 더미데이터셋을 리스트에 저장
-
-        test_dummies = pd.concat(test_dummies,axis=1)    
-        input_df = pd.concat([input_df,test_dummies],axis=1).drop(cat_col,axis=1)
-
-
-        for col in train_col:
-            if col not in input_df.columns:
-                input_df[col] = 0
-
-        # for col in input_df.columns:
-        #     if col not in train_col:
-        #         input_df.drop(col,axis=1)
-
-        input_df = input_df[train_col]
-        # st.write(f'{input_df.columns}')#,{y_prob}')
-        # 모델 생성(from pickle)
-        model = list_dic['model']
-
-#     # 당뇨병 예측
-        y_pred = model.predict(input_df)
-        y_prob = model.predict_proba(input_df)[:,1]
-        result = '1'
-        if y_pred == 0:
-            result = '정상'
-        else : 
-            result = '당뇨'
-
-        percent = round(y_prob[0],2)*100
-#         # y_prob = round(y_prob[0][0]*100,2)   
-#         st.write(f'''{feature1}님은 현재 {result} 입니다.
-        
-        
-# 또한, 당뇨일 확률은 {percent}% 입니다.''')
-        st.sidebar.title("결과 : ")
-        st.sidebar.info(f'''{feature1}님은 현재 {result} 입니다.
-또한, 당뇨일 확률은 {percent}% 입니다.''')
-        st.info(f"결과 : {feature1}님은 현재 {result} 입니다. 또한, 당뇨일 확률은 {percent} % 입니다.")
-
-    except:
-        pass
+        try:
+            num_col = ['AGE','BMI','HEIGHT(cm)','WEIGHT(kg)']
+            cat_col = ['HISPAN_I', 'MRACBPI2', 'MRACRPI2', 'REGION']
+            nom_col = np.setdiff1d(input_df.drop('id',axis=1).columns,num_col,cat_col)
+            input_df.loc[:,num_col] = input_df.loc[:,num_col].astype('float')
+            input_df.loc[:,nom_col] = input_df.loc[:,nom_col].astype('int')
+    
+            cust_id = input_df.pop('id')
+    
+            # Scaler 생성(from pickle) 할당 및 컬럼 Scaling
+            for s in scalers:
+                scale = list_dic[s]
+                input_df[s] = scale.transform(input_df[[s]])
+            # 명목형 컬럼들에 대한 dummy 데이터 생성(원핫인코딩)
+            test_dummies = [] # 검증용 데이터셋의 명목형 컬럼들의 더미데이터셋 저장용 리스트
+            for col in cat_col:
+                test_dummies.append(pd.get_dummies(input_df[col],prefix=col,dtype='int')) # 검증데이터의 각 컬럼들의 더미데이터셋을 리스트에 저장
+    
+            test_dummies = pd.concat(test_dummies,axis=1)    
+            input_df = pd.concat([input_df,test_dummies],axis=1).drop(cat_col,axis=1)
+    
+    
+            for col in train_col:
+                if col not in input_df.columns:
+                    input_df[col] = 0
+    
+            # for col in input_df.columns:
+            #     if col not in train_col:
+            #         input_df.drop(col,axis=1)
+    
+            input_df = input_df[train_col]
+            # st.write(f'{input_df.columns}')#,{y_prob}')
+            # 모델 생성(from pickle)
+            model = list_dic['model']
+    
+    #     # 당뇨병 예측
+            y_pred = model.predict(input_df)
+            y_prob = model.predict_proba(input_df)[:,1]
+            result = '1'
+            if y_pred == 0:
+                result = '정상'
+            else : 
+                result = '당뇨'
+    
+            percent = round(y_prob[0],2)*100
+    #         # y_prob = round(y_prob[0][0]*100,2)   
+    #         st.write(f'''{feature1}님은 현재 {result} 입니다.
+            
+            
+    # 또한, 당뇨일 확률은 {percent}% 입니다.''')
+            st.sidebar.title("결과 : ")
+            st.sidebar.info(f'''{feature1}님은 현재 {result} 입니다.
+    또한, 당뇨일 확률은 {percent}% 입니다.''')
+            st.info(f"결과 : {feature1}님은 현재 {result} 입니다. 또한, 당뇨일 확률은 {percent} % 입니다.")
+    
+        except:
+            pass
