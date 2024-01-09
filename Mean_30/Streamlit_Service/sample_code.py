@@ -133,7 +133,7 @@ if st.button('설문 결과'):
         data = dict(zip(columns,user_input_feature))
         input_df = pd.DataFrame(data,index=[0])
         intput_df_copy = input_df.copy()
-        st.session_state['input_data'] = intput_df_copy
+        st.session_state['input_data'] = input_df
         st.session_state['survey_result'] = intput_df_copy
         # st.write('설문결과')
         # st.dataframe(input_df)
@@ -147,6 +147,7 @@ if st.session_state['survey_result'] is not None:
 if st.button('당신은 당뇨일까?!'):
     if st.session_state['input_data'] is not None:
         # session_state에서 데이터 불러오기
+        intput_df_copy = st.session_state['survey_result']
         input_df = st.session_state['input_data']
 
         try:
