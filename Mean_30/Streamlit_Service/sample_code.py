@@ -59,10 +59,9 @@ feature2 = st.text_input('나이를 입력하세요:', )
 
 feature18 = st.text_input('키를 입력하세요:', )
 feature19 = st.text_input('몸무게를 입력하세요:', )
-try:
-    feature5 = str(int(int(feature19)/((int(feature18)/100)**2)))
-except:
-    pass
+
+
+
 
 feature3 = st.radio('음주를 자주 하나요?:',('예','아니오'))
 feature3 = answerconvert(feature3)
@@ -110,15 +109,6 @@ feature16 = feature15
 # feature17 = region[selected_region]
 feature17 = 1
 
-
-
-
-
-col_text = 'id AGE ALCSTAT ARTH1 BMI CHLEV EPHEV FSBALANC GENDER HISPAN_I HYPEV HYPMDEV2 HYPMED2 INTIL2W MRACBPI2 MRACRPI2 REGION HEIGHT(cm) WEIGHT(kg) DIBEV1'
-columns = col_text.split(' ')
-user_input_feature = [feature1,feature2,feature3,feature4,feature5,feature6,feature7,feature8,feature9,feature10,feature11,feature12,feature13,feature14,feature15,feature16,feature17,feature18,feature19]
-data = dict(zip(columns,user_input_feature))
-input_df = pd.DataFrame(data,index=[0])
 train_col = ['AGE', 'ALCSTAT', 'ARTH1', 'BMI', 'CHLEV', 'EPHEV', 'FSBALANC',
        'GENDER', 'HYPEV', 'HYPMDEV2', 'HYPMED2', 'INTIL2W', 'HEIGHT(cm)',
        'WEIGHT(kg)', 'HISPAN_I_0.0', 'HISPAN_I_1.0', 'HISPAN_I_2.0',
@@ -132,6 +122,12 @@ train_col = ['AGE', 'ALCSTAT', 'ARTH1', 'BMI', 'CHLEV', 'EPHEV', 'FSBALANC',
 
 if st.button('당신은 당뇨일까?!'):
     try:
+        feature5 = str(int(int(feature19)/((int(feature18)/100)**2)))
+        col_text = 'id AGE ALCSTAT ARTH1 BMI CHLEV EPHEV FSBALANC GENDER HISPAN_I HYPEV HYPMDEV2 HYPMED2 INTIL2W MRACBPI2 MRACRPI2 REGION HEIGHT(cm) WEIGHT(kg) DIBEV1'
+        columns = col_text.split(' ')
+        user_input_feature = [feature1,feature2,feature3,feature4,feature5,feature6,feature7,feature8,feature9,feature10,feature11,feature12,feature13,feature14,feature15,feature16,feature17,feature18,feature19]
+        data = dict(zip(columns,user_input_feature))
+        input_df = pd.DataFrame(data,index=[0])
         num_col = ['AGE','BMI','HEIGHT(cm)','WEIGHT(kg)']
         cat_col = ['HISPAN_I', 'MRACBPI2', 'MRACRPI2', 'REGION']
         nom_col = np.setdiff1d(input_df.drop('id',axis=1).columns,num_col,cat_col)
