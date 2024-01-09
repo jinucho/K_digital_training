@@ -121,6 +121,9 @@ train_col = ['AGE', 'ALCSTAT', 'ARTH1', 'BMI', 'CHLEV', 'EPHEV', 'FSBALANC',
        'REGION_1.0', 'REGION_2.0', 'REGION_3.0', 'REGION_4.0']
 if 'input_data' not in st.session_state:
     st.session_state['input_data'] = None
+if 'survey_result' not in st.session_state:
+    st.session_state['survey_result'] = None
+
 if st.button('설문 결과'):
     try:
         feature5 = str(int(int(feature19)/((int(feature18)/100)**2)))
@@ -128,12 +131,17 @@ if st.button('설문 결과'):
         columns = col_text.split(' ')
         user_input_feature = [feature1,feature2,feature3,feature4,feature5,feature6,feature7,feature8,feature9,feature10,feature11,feature12,feature13,feature14,feature15,feature16,feature17,feature18,feature19]
         data = dict(zip(columns,user_input_feature))
-        globals()['input_df'] = pd.DataFrame(data,index=[0])
+        input_df = pd.DataFrame(data,index=[0])
+        st.session_state['input_data'] = input_df
+        st.session_state['survey_result'] = input_df
         st.write('설문결과')
         st.dataframe(input_df)
-        st.session_state['input_data'] = input_df
     except:
         st.write('누락된 값이 있습니다.')
+        
+if st.session_state['survey_result'] is not None:
+    st.write('이전 설문 결과:')
+    st.dataframe(st.session_state['survey_result'])
 
 if st.button('당신은 당뇨일까?!'):
     if st.session_state['input_data'] is not None:
