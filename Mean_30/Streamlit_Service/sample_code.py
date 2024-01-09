@@ -120,7 +120,7 @@ train_col = ['AGE', 'ALCSTAT', 'ARTH1', 'BMI', 'CHLEV', 'EPHEV', 'FSBALANC',
        'MRACRPI2_11.0', 'MRACRPI2_15.0', 'MRACRPI2_16.0', 'MRACRPI2_17.0',
        'REGION_1.0', 'REGION_2.0', 'REGION_3.0', 'REGION_4.0']
 
-if st.button('당신은 당뇨일까?!'):
+if st.button('설문 결과'):
     try:
         feature5 = str(int(int(feature19)/((int(feature18)/100)**2)))
         col_text = 'id AGE ALCSTAT ARTH1 BMI CHLEV EPHEV FSBALANC GENDER HISPAN_I HYPEV HYPMDEV2 HYPMED2 INTIL2W MRACBPI2 MRACRPI2 REGION HEIGHT(cm) WEIGHT(kg) DIBEV1'
@@ -128,6 +128,20 @@ if st.button('당신은 당뇨일까?!'):
         user_input_feature = [feature1,feature2,feature3,feature4,feature5,feature6,feature7,feature8,feature9,feature10,feature11,feature12,feature13,feature14,feature15,feature16,feature17,feature18,feature19]
         data = dict(zip(columns,user_input_feature))
         input_df = pd.DataFrame(data,index=[0])
+        st.write(f'{input_df}')
+    except:
+        pass
+
+
+
+if st.button('당신은 당뇨일까?!'):
+    try:
+        # feature5 = str(int(int(feature19)/((int(feature18)/100)**2)))
+        # col_text = 'id AGE ALCSTAT ARTH1 BMI CHLEV EPHEV FSBALANC GENDER HISPAN_I HYPEV HYPMDEV2 HYPMED2 INTIL2W MRACBPI2 MRACRPI2 REGION HEIGHT(cm) WEIGHT(kg) DIBEV1'
+        # columns = col_text.split(' ')
+        # user_input_feature = [feature1,feature2,feature3,feature4,feature5,feature6,feature7,feature8,feature9,feature10,feature11,feature12,feature13,feature14,feature15,feature16,feature17,feature18,feature19]
+        # data = dict(zip(columns,user_input_feature))
+        # input_df = pd.DataFrame(data,index=[0])
         num_col = ['AGE','BMI','HEIGHT(cm)','WEIGHT(kg)']
         cat_col = ['HISPAN_I', 'MRACBPI2', 'MRACRPI2', 'REGION']
         nom_col = np.setdiff1d(input_df.drop('id',axis=1).columns,num_col,cat_col)
