@@ -1,3 +1,7 @@
+![image](https://github.com/jinucho/Diabetes-prediction/assets/133849027/9ec602aa-0a3e-45c9-8978-625ab4b8b3db)
+
+
+
 # 🤖 머신러닝 프로젝트(당뇨병 예측모델)</br>Diabetes predictive modeling
 - Team : Mean_30
 
