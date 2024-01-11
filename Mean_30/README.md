@@ -1,6 +1,4 @@
-<img src="https://url/image.png](https://github.com/jinucho/Diabetes-prediction/assets/133849027/9ec602aa-0a3e-45c9-8978-625ab4b8b3db)" width="50" height="50"/>
-
-![image](https://github.com/jinucho/Diabetes-prediction/assets/133849027/9ec602aa-0a3e-45c9-8978-625ab4b8b3db)
+<img src="https://github.com/jinucho/Diabetes-prediction/assets/133849027/9ec602aa-0a3e-45c9-8978-625ab4b8b3db" width="50" height="50"/>
 
 
 
