@@ -1,7 +1,7 @@
 # `Title: Be the information hub`</br>    
 ### team: ☕ espresso conpanna    </br>    
 <li>Member : Cho Jinwu/ Haam EunGyu </li>
-<li>Project Period : 2024-03-06 ~ 2024-03-14 </li>
+<li>Project Period : 2024-02-27 ~ 2024-03-14 </li>
 
 ## :books: Used skill
 - **Programming** <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
