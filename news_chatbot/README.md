@@ -3,7 +3,7 @@
 <li>Member : Cho Jinwu/ Haam EunGyu </li>
 <li>Project Period : 2024-03-06 ~ 2024-03-14 </li>
 
-## :books: Useskill
+## :books: Used skill
 - **Programming** <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
 - **Library** <img src="https://img.shields.io/badge/scikitlearn-blue?style=for-the-badge&logo=scikitlearn&logoColor=white"> <img src="https://img.shields.io/badge/Numpy-blue?style=for-the-badge&logo=Numpy&logoColor=white">
 <img src="https://img.shields.io/badge/Pandas-blue?style=for-the-badge&logo=Pandas&logoColor=white"> <img src="https://img.shields.io/badge/HUGGINGFACE-yellow?style=for-the-badge&logo=huggingface&logoColor=white"> <img src="https://img.shields.io/badge/Langchain-green?style=for-the-badge&logo=langchain&logoColor=white">  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white"> <img src="https://img.shields.io/badge/flask-412991?style=for-the-badge&logo=flask&logoColor=white">      
