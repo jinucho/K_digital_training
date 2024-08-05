@@ -47,6 +47,6 @@
        &nbsp;&nbsp;&nbsp; 2) 우선순위 선정 미흡으로 목표한 100% 서비스화 구축에 실패(local model 사용 불가 / OpenAI API 사용)</br>
        &nbsp;&nbsp;&nbsp; 3) 챗봇 모델 학습 단계에서 모델에 대한 분석이 부족하여 잘 못된 방향으로 학습을 진행(영어 기반 모델에 한글자료로 LoRA 튜닝)</br>
        
-## V. ToDo(2024.07.20~)
-**1. LLM instruct tunning</br>
+## V. ToDo
+**1. LLM tunning</br>
 **2. GPU Cloud Service 이용하여 서비스 배포 테스트(Runpod)
