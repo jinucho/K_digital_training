@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="24.7.6">
   <diagram id="yPxyJZ8AM_hMuL3Unpa9" name="complex gitflow">
-    <mxGraphModel dx="1434" dy="786" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="707" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -9,7 +9,7 @@
             <mxPoint x="441" y="208" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Ud2c-rGIMPgrmA5Fe9ls-7" value="&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;매도 기업거래소 데이터&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;100개씩 반복 호출&lt;/font&gt;&lt;div&gt;(연결 실패 시 재시도 로직)&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;수집된 데이터는 SQLite DB에 저장 -&amp;gt; SBCE.db 생성&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;원본테이블 및 fts 테이블,&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;log테이블 등 생성&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;save_SBCE.log 생성 및 logging&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;* 추후 각 거래소 및 거래타입별로 .py와 .db 별도로 생성&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+        <mxCell id="Ud2c-rGIMPgrmA5Fe9ls-7" value="&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;거래타입 및 각 거래소 데이터&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;100개씩 반복 호출&lt;/font&gt;&lt;div&gt;(연결 실패 시 재시도 로직)&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;수집된 데이터는 SQLite DB에 저장 -&amp;gt; XXXX.db 생성&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;원본테이블 및 fts 테이블,&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;log테이블 등 생성&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;save_XXXX.log 생성 및 logging&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;* 추후 각 거래소 및 거래타입별로 .py와 .db 별도로 생성&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="201" y="154" width="159" height="306" as="geometry" />
         </mxCell>
         <mxCell id="Ud2c-rGIMPgrmA5Fe9ls-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Ud2c-rGIMPgrmA5Fe9ls-4" target="Ud2c-rGIMPgrmA5Fe9ls-7" edge="1">
@@ -18,7 +18,7 @@
         <mxCell id="Ud2c-rGIMPgrmA5Fe9ls-4" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;마톡 DB API&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="25" y="164" width="90" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="Ud2c-rGIMPgrmA5Fe9ls-5" value="API Script&lt;div&gt;(save_SBCE.py)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="Ud2c-rGIMPgrmA5Fe9ls-5" value="API Script&lt;div&gt;(save_XXXX.py)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="220" y="163" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Ud2c-rGIMPgrmA5Fe9ls-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="Ud2c-rGIMPgrmA5Fe9ls-19" edge="1">
