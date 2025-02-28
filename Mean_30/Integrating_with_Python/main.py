@@ -1,5 +1,0 @@
-from dataprocess.diabetes_preprocess import diabetes_preprocess
-from dataprocess.diabetes_MachineModeling import diabetes_MachineModeling
-
-file_path,file_name = diabetes_preprocess()
-diabetes_MachineModeling(file_path,file_name)
