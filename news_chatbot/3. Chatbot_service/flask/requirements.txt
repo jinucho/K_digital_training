@@ -1,0 +1,7 @@
+langchain==0.1.9
+streamlit
+faiss-cpu
+langchain-openai
+flask
+langchain-community
+python-dotenv==0.19.0
