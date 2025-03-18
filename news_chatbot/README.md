@@ -41,7 +41,6 @@
 
 ## Ⅳ. 마무리
 **1. 챗봇 서비스 구현**</br>
-       &nbsp;&nbsp;&nbsp; <img src="https://github.com/user-attachments/assets/d907dc0f-4763-4c05-b27a-60fa69653541)" width="300"> </br>
        ![image](https://github.com/user-attachments/assets/d907dc0f-4763-4c05-b27a-60fa69653541)
 
 **2. 후기**</br>
