@@ -41,7 +41,8 @@
 
 ## Ⅳ. 마무리
 **1. 챗봇 서비스 구현**</br>
-       &nbsp;&nbsp;&nbsp; <img src="https://github.com/jinucho/espresso_conpanna/assets/133849027/7e05ca29-5e91-4218-a1c9-b092e5a7074a" width="300"> </br>
+       &nbsp;&nbsp;&nbsp; <img src="https://github.com/user-attachments/assets/ef186c38-5eab-426e-9714-51da8d958732)" width="300"> </br>
+
 **2. 후기**</br>
        &nbsp;&nbsp;&nbsp; 1) LLM에서 학습된 정보에 한정되지 않고, RAG 방법을 사용함으로써 새로운 정보를 얻을 수 있다는 것을 알게 되었습니다.</br>
        &nbsp;&nbsp;&nbsp; 2) 우선순위 선정 미흡으로 목표한 100% 서비스화 구축에 실패(local model 사용 불가 / OpenAI API 사용)</br>
