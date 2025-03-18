@@ -42,6 +42,7 @@
 ## Ⅳ. 마무리
 **1. 챗봇 서비스 구현**</br>
        &nbsp;&nbsp;&nbsp; <img src="https://github.com/user-attachments/assets/ef186c38-5eab-426e-9714-51da8d958732)" width="300"> </br>
+       ![image](https://github.com/user-attachments/assets/d907dc0f-4763-4c05-b27a-60fa69653541)
 
 **2. 후기**</br>
        &nbsp;&nbsp;&nbsp; 1) LLM에서 학습된 정보에 한정되지 않고, RAG 방법을 사용함으로써 새로운 정보를 얻을 수 있다는 것을 알게 되었습니다.</br>
